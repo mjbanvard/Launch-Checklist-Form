@@ -41,13 +41,11 @@
                          alert("All fields are required!");
                          // stop the form submission
                          event.preventDefault();
-                      if(isNaN(fuelLevel) || isNaN(cargoMass)) {
+                        }
+                      if(isNaN(Number(fuelLevel)) || isNaN(Number(cargoMass))) {
                           alert("Fuel Level and Carge Mass must be entered numerically");
                           event.preventDefault();
-                      }
-                      
-
-                      }
+                        }
                    });
                 });
              </script>

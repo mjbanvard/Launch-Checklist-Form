@@ -27,6 +27,31 @@
                 <button id="formSubmit">Submit</button>
             </form>
         </div>
+        <div id="inputValidation">
+            <script>
+                window.addEventListener("load", function() {
+                   let form = document.querySelector("form");
+                   form.addEventListener("submit", function(event) {
+                      let pilotName = document.querySelector("input[name=pilotName]");
+                      let copilotName = document.querySelector("input[name=copilotName]");
+                      let fuelLevel = document.querySelector("input[name=fuelLevel]");
+                      let cargoMass = document.querySelector("input[name=cargoMass]");
+                      if (pilotName.value === "" || copilotName.value === "" || 
+                            fuelLevel.value === "" || cargoMass.value === "") {
+                         alert("All fields are required!");
+                         // stop the form submission
+                         event.preventDefault();
+                      if(isNaN(fuelLevel) || isNaN(cargoMass)) {
+                          alert("Fuel Level and Carge Mass must be entered numerically");
+                          event.preventDefault();
+                      }
+                      
+
+                      }
+                   });
+                });
+             </script>
+        </div>
         <div id="launchStatusCheck">
             <h2 id="launchStatus">Awaiting Information Before Launch</h2>
             <div  id="faultyItems">

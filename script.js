@@ -51,21 +51,42 @@ window.addEventListener("load", function () {
 //      </div>
 //      </div>
 
-    document.getElementById("launchStatus").innerHTML= 
-        //<h1 style="color:blue;">This is a Blue Heading</h1>
-        `<p style="color:red;">Shuttle not ready to Launch</p>`
+    if (fuelLevel.value < 10000 || cargoMass.value > 10000) {
+        document.getElementById("launchStatus").innerHTML= 
+            `<span style="color:red;">Shuttle not ready to Launch</span>`;
+        document.getElementById("pilotStatus").innerHTML=
+            `<span style="visibility:visible">Pilot ${pilotName.value} is ready for launch</span>`;
+        document.getElementById("copilotStatus").innerHTML=
+            `<span style="visibility:visible">Co-Pilot ${copilotName.value} is ready for launch</span>`;
+        if (fuelLevel.value < 10000) {
+            document.getElementById("fuelStatus").innerHTML=
+                `<span style="visibility:visible">Fuel level too low for launch</span>`;
+            } else {
+            document.getElementById("fuelStatus").innerHTML=
+                `<span style="visibility:visible">Fuel level high enough for launch</span>`;
+            };
+        if (cargoMass.value > 10000) {
+            document.getElementById("cargoStatus").innerHTML=
+                `<span style="visibility:visible">Cargo mass too high for launch</span>`;
+            } else {
+            document.getElementById("cargoStatus").innerHTML=
+                `<span style="visibility:visible">Cargo mass too high for launch</span>`;
+            };
+    } else {
+        document.getElementById("launchStatus").innerHTML= 
+            `<span style="color:green;">Shuttle is ready to Launch</span>`;
+        document.getElementById("pilotStatus").innerHTML=
+            `<span style="visibility:visible">Pilot ${pilotName.value} is ready for launch</span>`;
+        document.getElementById("copilotStatus").innerHTML=
+            `<span style="visibility:visible">Co-Pilot ${copilotName.value} is ready for launch</span>`;
+    }
     // let newItem = 
     //     `<style>
     //         li {visibility:visible;}
     //     </style>`
     // document.getElementById("faultyItems").insertBefore(newItem, `<ol>`)
         
-    document.getElementById("pilotStatus").innerHTML=
-        `<span style="visibility:visible">Pilot ${pilotName.value} is ready for launch</span>`
-    document.getElementById("copilotStatus").innerHTML=
-        `<span style="visibility:visible">Co-Pilot ${copilotName.value} is ready for launch</span>`
-    document.getElementById("fuelStatus").innerHTML=
-        `<span style="visibility:visible">Fuel level too low for launch</span>`
+    
        });
 
     

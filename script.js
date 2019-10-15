@@ -32,7 +32,7 @@ window.addEventListener("load", function () {
            alert("All fields are required!");
        }
        if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
-           alert("Fuel Level and Carge Mass must be entered numerically");
+           alert("Make sure to enter valid information for each field!");
        }
        event.preventDefault();
     // stop the form submission
@@ -63,14 +63,14 @@ window.addEventListener("load", function () {
                 `<span style="visibility:visible">Fuel level too low for launch</span>`;
             } else {
             document.getElementById("fuelStatus").innerHTML=
-                `<span style="visibility:visible">Fuel level high enough for launch</span>`;
+                `<span style="visibility:visible">Fuel level is high enough for launch</span>`;
             };
         if (cargoMass.value > 10000) {
             document.getElementById("cargoStatus").innerHTML=
                 `<span style="visibility:visible">Cargo mass too high for launch</span>`;
             } else {
             document.getElementById("cargoStatus").innerHTML=
-                `<span style="visibility:visible">Cargo mass too high for launch</span>`;
+                `<span style="visibility:visible">Cargo mass is low enough for launch</span>`;
             };
     } else {
         document.getElementById("launchStatus").innerHTML= 
@@ -79,6 +79,11 @@ window.addEventListener("load", function () {
             `<span style="visibility:visible">Pilot ${pilotName.value} is ready for launch</span>`;
         document.getElementById("copilotStatus").innerHTML=
             `<span style="visibility:visible">Co-Pilot ${copilotName.value} is ready for launch</span>`;
+        document.getElementById("fuelStatus").innerHTML=
+            `<span style="visibility:visible">Fuel level is high enough for launch</span>`;
+        document.getElementById("cargoStatus").innerHTML=
+            `<span style="visibility:visible">Cargo mass is low enough for launch</span>`;
+        
     }
     // let newItem = 
     //     `<style>

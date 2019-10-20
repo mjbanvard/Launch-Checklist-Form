@@ -20,8 +20,8 @@ window.addEventListener("load", function () {
                 </ol>
                 <img src="${planet[i].image}">`
         })
+
     // Input Validation
-    
     form.addEventListener("submit", function (event) {
        let pilotName = document.querySelector("input[name=pilotName]");
        let copilotName = document.querySelector("input[name=copilotName]");
@@ -41,13 +41,9 @@ window.addEventListener("load", function () {
        } else if (!alphaCheck(pilotName.value) || !alphaCheck(copilotName.value)) {
            alert("Please enter names in string form!")
        };
-    // });
+ 
     // stop the form submission
  
-// if(this_boolean_variable){
-
-
-/*else */
     if (fuelLevel.value < 10000 || cargoMass.value > 10000) {
         document.getElementById("launchStatus").innerHTML= 
             `<span style="color:red;">Shuttle not ready to Launch</span>`;
@@ -81,18 +77,8 @@ window.addEventListener("load", function () {
         document.getElementById("cargoStatus").innerHTML=
             `<span style="visibility:visible">Cargo mass is low enough for launch</span>`;
         
-    }
-    event.preventDefault();
-
-    // let newItem = 
-    //     `<style>
-    //         li {visibility:visible;}
-    //     </style>`
-    // document.getElementById("faultyItems").insertBefore(newItem, `<ol>`)
-        
-    
-       });
-
-    
- });
+    };
+    event.preventDefault();  
+    });
+});
 

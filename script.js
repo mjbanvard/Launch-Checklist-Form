@@ -21,36 +21,33 @@ window.addEventListener("load", function () {
                 <img src="${planet[i].image}">`
         })
     // Input Validation
+    
     form.addEventListener("submit", function (event) {
        let pilotName = document.querySelector("input[name=pilotName]");
        let copilotName = document.querySelector("input[name=copilotName]");
        let fuelLevel = document.querySelector("input[name=fuelLevel]");
        let cargoMass = document.querySelector("input[name=cargoMass]");
+       let alphaCheck = function(name) {
+           let x = /^[A-Za-z]+$/;
+           console.log(x.test(name));
+           return x.test(name);
+       };
        console.log(pilotName.value, copilotName.value, fuelLevel.value, cargoMass.value)
        if (pilotName.value === "" || copilotName.value === "" ||
            fuelLevel.value === "" || cargoMass.value === "") {
            alert("All fields are required!");
-       }
-       if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
+       } else if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
            alert("Make sure to enter valid information for each field!");
-       }
-       event.preventDefault();
+       } else if (!alphaCheck(pilotName.value) || !alphaCheck(copilotName.value)) {
+           alert("Please enter names in string form!")
+       };
+    // });
     // stop the form submission
-       
-    //If shuttle is not ready to launch
+ 
+// if(this_boolean_variable){
 
-//     <div id="launchStatusCheck">
-//     <h2 id="launchStatus">Awaiting Information Before Launch</h2>
-//     <div id="faultyItems">
-//         <ol>
-//             <li id="pilotStatus">Pilot Ready</li>
-//             <li id="copilotStatus">Co-pilot Ready</li>
-//             <li id="fuelStatus">Fuel level high enough for launch</li>
-//             <li id="cargoStatus">Cargo mass low enough for launch</li>
-//         </ol>
-//      </div>
-//      </div>
 
+/*else */
     if (fuelLevel.value < 10000 || cargoMass.value > 10000) {
         document.getElementById("launchStatus").innerHTML= 
             `<span style="color:red;">Shuttle not ready to Launch</span>`;
@@ -85,6 +82,8 @@ window.addEventListener("load", function () {
             `<span style="visibility:visible">Cargo mass is low enough for launch</span>`;
         
     }
+    event.preventDefault();
+
     // let newItem = 
     //     `<style>
     //         li {visibility:visible;}
@@ -95,5 +94,5 @@ window.addEventListener("load", function () {
        });
 
     
-});
+ });
 

@@ -40,11 +40,7 @@ window.addEventListener("load", function () {
            alert("Make sure to enter valid information for each field!");
        } else if (!alphaCheck(pilotName.value) || !alphaCheck(copilotName.value)) {
            alert("Please enter names in string form!")
-       };
- 
-    // stop the form submission
- 
-    if (fuelLevel.value < 10000 || cargoMass.value > 10000) {
+       } else if (fuelLevel.value < 10000 || cargoMass.value > 10000) {
         document.getElementById("launchStatus").innerHTML= 
             `<span style="color:red;">Shuttle not ready to Launch</span>`;
         document.getElementById("pilotStatus").innerHTML=
